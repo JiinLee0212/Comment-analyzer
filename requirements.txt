@@ -1,0 +1,10 @@
+google-api-python-client
+pandas
+matplotlib
+wordcloud
+kiwipiepy
+bertopic
+scikit-learn
+requests
+streamlit
+sentence-transformers
