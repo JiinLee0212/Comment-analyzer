@@ -6,5 +6,5 @@ kiwipiepy
 bertopic
 scikit-learn
 requests
-streamlit
+streamlit>=1.32
 sentence-transformers
