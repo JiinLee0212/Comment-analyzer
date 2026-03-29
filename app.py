@@ -500,9 +500,8 @@ else:
 
         # 토픽 결과 병합
         if 'topic_df' in st.session_state:
-            topic_result = st.session_state['topic_df'][['댓글내용', '토픽번호', '토픽키워드']]
-            download_df = df.merge(topic_result[['댓글내용', '토픽번호', '토픽키워드']],
-                                   on='댓글내용', how='left')
+            topic_result = st.session_state['topic_df'][['댓글내용', '토픽번호', '토픽키워드']].drop_duplicates(subset='댓글내용')
+            download_df = df.merge(topic_result, on='댓글내용', how='left')
         else:
             download_df = df.copy()
             download_df['토픽번호'] = '미분석'
