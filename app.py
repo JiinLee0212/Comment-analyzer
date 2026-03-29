@@ -469,6 +469,7 @@ else:
                     df = collect_naver_comments(url_input, max_comments)
 
                 df['작성시간'] = pd.to_datetime(df['작성시간'], errors='coerce')
+                df = df.drop_duplicates(subset='댓글내용').reset_index(drop=True)
                 st.success(f"댓글 {len(df)}개 수집 완료!")
             except Exception as e:
                 st.error(f"댓글 수집 실패: {e}")
