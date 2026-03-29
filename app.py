@@ -12,8 +12,13 @@ from sklearn.feature_extraction.text import CountVectorizer
 import re
 import requests
 
-FONT_PATH = r"C:\Windows\Fonts\malgun.ttf"
-plt.rcParams['font.family'] = 'Malgun Gothic'
+import os
+FONT_PATH = os.path.join(os.path.dirname(__file__), 'malgun.ttf')
+if not os.path.exists(FONT_PATH):
+    FONT_PATH = r"C:\Windows\Fonts\malgun.ttf"
+from matplotlib import font_manager
+font_manager.fontManager.addfont(FONT_PATH)
+plt.rcParams['font.family'] = font_manager.FontProperties(fname=FONT_PATH).get_name()
 plt.rcParams['axes.unicode_minus'] = False
 
 STOPWORDS = [
